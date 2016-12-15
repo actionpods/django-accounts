@@ -1,0 +1,83 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block head %}
+{{ block.super }}
+<style type="text/css">
+    .btn-social {
+        color: white;
+        opacity: 0.8;
+    }
+
+    .btn-social:hover {
+        color: white;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    .btn-facebook {
+        background-color: #3b5998;
+    }
+
+    .btn-twitter {
+        background-color: #00aced;
+    }
+
+    .btn-linkedin {
+        background-color: #0e76a8;
+    }
+
+    .btn-google {
+        background-color: #c32f10;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+        <section style="padding-bottom: 50px; padding-top: 50px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{% thumbnail request.user.profile.photo 250x250 %}" class="img-rounded img-responsive" />
+                    <br />
+                    <br />
+                    <h4>{{ user.username|title }}</h4>
+                    <label>Registered Name</label>
+                    <input type="text" class="form-control" placeholder="{{ user.first_name}} {{ user.last_name }}">
+                    <label>Registered Email</label>
+                    <input type="text" class="form-control" placeholder="{{ user.email }}">
+                    <br>
+                    <a href="#" class="btn btn-success">Update Details</a>
+                    <br /><br/>
+                </div>
+                <div class="col-md-8">
+                    <div class="alert alert-info">
+                        <h2>{{ user.username|title }}</h2>
+                        <h4>{{ user.profile.city}}, {{ user.profile.state }}</h4>
+                        <p>
+                            {{ user.profile.about }}
+                        </p>
+                    </div>
+                    <div >
+                        <a href="#" class="btn btn-social btn-facebook">
+                            <i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+                        <a href="#" class="btn btn-social btn-google">
+                            <i class="fa fa-google-plus"></i>&nbsp; Google</a>
+                        <a href="#" class="btn btn-social btn-twitter">
+                            <i class="fa fa-twitter"></i>&nbsp; Twitter </a>
+                        <a href="#" class="btn btn-social btn-linkedin">
+                            <i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
+                    </div>
+                    <hr>
+                    <div class ="table-responsive">
+                    </div>
+                </div>
+            </div>
+            <!-- ROW END -->
+
+
+        </section>
+        <!-- SECTION END -->
+    </div>
+    <!-- CONATINER END -->
+
+{% endblock %}
