@@ -1,0 +1,61 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block head %}
+{{ block.super }}
+<style type="text/css">
+    .btn-social {
+        color: white;
+        opacity: 0.8;
+    }
+
+    .btn-social:hover {
+        color: white;
+        opacity: 1;
+        text-decoration: none;
+    }
+
+    .btn-facebook {
+        background-color: #3b5998;
+    }
+
+    .btn-twitter {
+        background-color: #00aced;
+    }
+
+    .btn-linkedin {
+        background-color: #0e76a8;
+    }
+
+    .btn-google {
+        background-color: #c32f10;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+        <section style="padding-bottom: 50px; padding-top: 50px;">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{% thumbnail request.profile.profile.photo 250x250 %}" class="img-rounded img-responsive" />
+                    <br />
+                    <br />
+                    <h4>{{ profile.username|title }}</h4>
+                    <label>Registered Name</label>
+                    <input type="text" class="form-control" placeholder="{{ profile.first_name}} {{ profile.last_name }}">
+                    <label>Registered Email</label>
+                    <input type="text" class="form-control" placeholder="{{ profile.email }}">
+                    <br>
+                    <a href="#" class="btn btn-success">Update Details</a>
+                    <br /><br/>
+                </div>
+            </div>
+            <!-- ROW END -->
+
+
+        </section>
+        <!-- SECTION END -->
+    </div>
+    <!-- CONATINER END -->
+
+{% endblock %}

@@ -1,0 +1,8 @@
+<div class="login-form"><!--login form-->
+    <h2>Login to your account</h2>
+    <form class="form-signin"  action="{% url 'account:login' %}" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Username" class="main-form" id="username" name="username"/>
+        <input type="password" placeholder="Password" class="main-form" id="password" name="password" />
+    </form>
+</div><!--/login form-->
