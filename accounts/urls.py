@@ -5,6 +5,7 @@ from .views import main
 urlpatterns = [
                url('^', include('django.contrib.auth.urls')),
                url('^register/$', main.CreateUser.as_view(), name="register"),
+               url('^social/', include('social.apps.django_app.urls', namespace='social')),
                ]
 
 ''' Includes the following URLs:

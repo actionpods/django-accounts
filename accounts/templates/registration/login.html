@@ -14,7 +14,7 @@
     <p>Please login to see this page.</p>
     {% endif %}
 {% endif %}
-
+<a href="{% url 'account:social:begin' 'facebook' %}">Login with Facebook</a>
 <form method="post" action="{% url 'account:login' %}">
 {% csrf_token %}
 <table>

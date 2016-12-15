@@ -28,6 +28,7 @@
 	{% if request.user.is_authenticated %}
 	<h1> Welcome, {{ request.user.username }} </h1>
 	{% else %}
+	<a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a>
 	{% load rest_framework %}
 	<section id="form"><!--form-->
 		<div class="container">
