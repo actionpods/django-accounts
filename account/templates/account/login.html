@@ -1,0 +1,48 @@
+{% extends "base/base.html" %}
+{% load staticfiles %}
+{% block head %}
+	{{ block.super }}
+	<link href="{% static 'account/css/login.css' %}" rel="stylesheet">
+	<style type="text/css">
+	    .btn-social {
+	        color: white;
+	        opacity: 0.8;
+	    }
+
+	    .btn-social:hover {
+	        color: white;
+	        opacity: 1;
+	        text-decoration: none;
+	    }
+
+	    .btn-facebook {
+	        background-color: #3b5998;
+	    }
+
+	    .btn-google {
+	        background-color: #c32f10;
+	    }
+	</style>
+{% endblock %}
+{% block content %}
+	{% if request.user.is_authenticated %}
+	<h1> Welcome, {{ request.user.username }} </h1>
+	{% else %}
+	{% load rest_framework %}
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					{% include 'forms/login.html' %}
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">OR</h2>
+				</div>
+				<div class="col-sm-4">
+					{% include 'forms/register.html' %}
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+	{% endif %}
+  {% endblock %}
