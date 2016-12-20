@@ -12,7 +12,7 @@ class Profile(models.Model):
     state = models.CharField(max_length=50, null=True, blank=True)
     #Personal Info
     about = models.TextField(max_length=1000, null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return '%s: %s %s' % (self.user.username,self.user.first_name, self.user.last_name)
 
 class Setting(models.Model):
@@ -22,7 +22,7 @@ class Setting(models.Model):
     )
     user = models.OneToOneField(User)
     color_palette = models.CharField(max_length=4, choices=PALETTE_THEMES, default='DARK')
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
 
 #Forms
